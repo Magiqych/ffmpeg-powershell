@@ -1,5 +1,0 @@
-$ffmpeg="ffmpeg.exeのある場所"
-Get-ChildItem *.* -Include *.mp4 | % {
-    $ArgumentLst = @("-i `""+$_.Name+"`"","-f lavfi -i color=gray:s=1080x1920 -f lavfi -i color=black:s=1080x1920 -f lavfi -i color=white:s=1080x1920 -filter_complex threshold", "`"z_"+$_.Name+".mp4`"")
-            Start-Process -NoNewWindow -Wait $ffmpeg -ArgumentList $ArgumentLst 
-}
